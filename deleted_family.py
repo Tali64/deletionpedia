@@ -9,7 +9,7 @@ class Family(family.Family):
         self.langs = { x: x for x in langlist }
 
     def hostname(self, code):
-        return 'deletionpedia.org'
+        return 'deletionpedia.miraheze.org'
 
     def scriptpath(self, code):
         if code == 'en':
