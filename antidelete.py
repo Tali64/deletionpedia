@@ -3,7 +3,7 @@
 #
 # (C) Kasper Souren 2013-2015
 #
-# http://deletionpedia.org/
+# http://deletionpedia.miraheze.org
 #
 # Script to rescue articles from Wikipedia
 # Multilingual, additions for other languages welcome
@@ -78,10 +78,8 @@ class Antidelete:
         except NoPage:
             print 'PROBABLY deleted already...', title
             return
-
-        if not 'porn' in article_text and not 'xxx' in article_text:
-            dp_page = Page(self.to, title)
-
+        
+        dp_page = Page(self.to, title)
             update_page = False
             try:
                 if dp_page.get() != article_text:
@@ -119,6 +117,8 @@ if __name__ == '__main__':
         'fn_day': lambda d: 'Wikipedia:Articles_for_deletion/Log/' + d.strftime('%Y_%B_%e'),
         'fn_title': lambda t: t.replace(' (2nd nomination)', ''),
         }
+        'test': 'Article for deletion',
+        'regexp': '{{Category:Candidates for speedy deletion/(.*)}}',
     patterns['fi'] = {
         'test': 'oistoäänestys}}',
         'regexp': '{{/(.*)}}',
