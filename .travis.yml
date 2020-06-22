@@ -1,4 +1,4 @@
   language: python
   script:
-    - antidelete
-    - deleted_family
+    - antidelete.py
+    - deleted_family.py
