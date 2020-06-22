@@ -1,4 +1,4 @@
-# Deletionpedia
+# The Wiki Archive
 
 [The Wiki Archive](http://wikiarchive.miraheze.org) is an anti-deletionist inclusionist project to rescue articles that are about to be deleted on Wikipedia.
 
