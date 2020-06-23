@@ -25,7 +25,7 @@ class Antidelete:
 
     def fetch(self):
         # There are various patterns
-        print self.lang, self.patterns
+        print (self.lang, self.patterns)
         
         if 'fn_day' in self.patterns:
             self.fetch_days()
@@ -84,15 +84,11 @@ class Antidelete:
                 if dp_page.get() != article_text:
                     update_page = True
                 else:
-                    print 'PAGE already rescued'
+                    print ('PAGE already rescued')
             except pywikibot.exceptions.NoPage:
                 update_page = True
             if update_page:
-                if self.patterns['test'] in article_text:
-                    msg = 'inclusion power'
-                else:
-                    article_text = "{{survived}}"
-                    msg = 'survived on Wikipedia'
+                msg = 'recovering from Wikipedia'
                 dp_page.put(article_text, msg)
 
 
