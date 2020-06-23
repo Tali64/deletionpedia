@@ -64,18 +64,18 @@ class Antidelete:
 
 
     def recover_article(self, title):
-        print "Recovering: " + title[:100]
+        print ("Recovering: " + title[:100])
         if 'Talk' in title:
-            print 'no talk pages yet'
+            print ('no talk pages yet')
             return
         page = Page(self.frm, title)
         try:
             article_text = page.get()
         except IsRedirectPage:
-            print 'IsRedirectPage?', title
+            print ('IsRedirectPage?', title)
             return
         except NoPage:
-            print 'PROBABLY deleted already...', title
+            print ('PROBABLY deleted already...', title)
             return
         
         dp_page = Page(self.to, title)
