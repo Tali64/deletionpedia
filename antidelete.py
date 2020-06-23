@@ -3,7 +3,7 @@
 #
 # (C) Kasper Souren 2013-2015
 #
-# http://deletionpedia.org/
+# http://wikiarchive.miraheze.org/
 #
 # Script to rescue articles from Wikipedia
 # Multilingual, additions for other languages welcome
