@@ -85,8 +85,6 @@ class Antidelete:
                 update_page = True
             else:
                 print ('PAGE already rescued')
-            except pywikibot.exceptions.NoPage:
-                update_page = True
             if update_page:
                 msg = 'recovering from Wikipedia'
                 dp_page.put(article_text, msg)
