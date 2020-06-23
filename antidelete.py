@@ -137,3 +137,4 @@ if __name__ == '__main__':
     for lang in ['de', 'en', 'fi', 'nl', 'fr', 'sv']:
         ad = Antidelete(lang, patterns[lang])
         ad.fetch()
+© 2020 GitHub, Inc.
