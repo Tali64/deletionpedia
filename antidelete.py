@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
+# (C) Kasper Souren 2013-2015
 #
-# http://wikiarchive.miraheze.org
+# http://deletionpedia.org/
 #
 # Script to rescue articles from Wikipedia
 # Multilingual, additions for other languages welcome
@@ -25,7 +26,7 @@ class Antidelete:
 
     def fetch(self):
         # There are various patterns
-        print (self.lang, self.patterns)
+        print self.lang, self.patterns
         
         if 'fn_day' in self.patterns:
             self.fetch_days()
@@ -64,29 +65,37 @@ class Antidelete:
 
 
     def recover_article(self, title):
-        print ("Recovering: " + title[:100])
+        print "Recovering: " + title[:100]
         if 'Talk' in title:
-            print ('no talk pages yet')
+            print 'no talk pages yet'
             return
         page = Page(self.frm, title)
         try:
             article_text = page.get()
         except IsRedirectPage:
-            print ('IsRedirectPage?', title)
+            print 'IsRedirectPage?', title
             return
         except NoPage:
-            print ('PROBABLY deleted already...', title)
+            print 'PROBABLY deleted already...', title
             return
-        
-        dp_page = Page(self.to, title)
-        update_page = False
-        try:
-            if dp_page.get() != article_text:
+
+        if not 'porn' in article_text and not 'xxx' in article_text:
+            dp_page = Page(self.to, title)
+
+            update_page = False
+            try:
+                if dp_page.get() != article_text:
+                    update_page = True
+                else:
+                    print 'PAGE already rescued'
+            except pywikibot.exceptions.NoPage:
                 update_page = True
-            else:
-                print ('PAGE already rescued')
             if update_page:
-                msg = 'recovering from Wikipedia'
+                if self.patterns['test'] in article_text:
+                    msg = 'inclusion power'
+                else:
+                    article_text = "{{survived}}"
+                    msg = 'survived on Wikipedia'
                 dp_page.put(article_text, msg)
 
 
@@ -110,8 +119,6 @@ if __name__ == '__main__':
         'fn_day': lambda d: 'Wikipedia:Articles_for_deletion/Log/' + d.strftime('%Y_%B_%e'),
         'fn_title': lambda t: t.replace(' (2nd nomination)', ''),
         }
-        'test': 'Article for deletion',
-        'regexp': '{{Category:Candidates for speedy deletion/(.*)}}',
     patterns['fi'] = {
         'test': 'oistoäänestys}}',
         'regexp': '{{/(.*)}}',
