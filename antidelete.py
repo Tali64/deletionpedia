@@ -79,12 +79,12 @@ class Antidelete:
             return
         
         dp_page = Page(self.to, title)
-            update_page = False
-            try:
-                if dp_page.get() != article_text:
-                    update_page = True
-                else:
-                    print ('PAGE already rescued')
+        update_page = False
+        try:
+            if dp_page.get() != article_text:
+                update_page = True
+            else:
+                print ('PAGE already rescued')
             except pywikibot.exceptions.NoPage:
                 update_page = True
             if update_page:
