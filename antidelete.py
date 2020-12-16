@@ -80,24 +80,20 @@ class Antidelete:
             print 'PROBABLY deleted already...', title
             return
 
-        if not 'porn' in article_text and not 'xxx' in article_text:
-            dp_page = Page(self.to, title)
+        dp_page = Page(self.to, title)
 
-            update_page = False
-            try:
-                if dp_page.get() != article_text:
-                    update_page = True
-                else:
-                    print 'PAGE already rescued'
-            except pywikibot.exceptions.NoPage:
+        update_page = False
+        try:
+            if dp_page.get() != article_text:
                 update_page = True
-            if update_page:
-                if self.patterns['test'] in article_text:
-                    msg = 'inclusion power'
-                else:
-                    article_text = "{{survived}}"
-                    msg = 'survived on Wikipedia'
-                dp_page.put(article_text, msg)
+            else:
+                print 'PAGE already rescued'
+        except pywikibot.exceptions.NoPage:
+            update_page = True
+        if update_page:
+            if self.patterns['test'] in article_text:
+                msg = 'inclusion power'
+            dp_page.put(article_text, msg)
 
 
 if __name__ == '__main__':
