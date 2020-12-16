@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # (C) Kasper Souren 2013-2015
+# (C) Tali Smotherman 2020
 #
 # http://wikiarchive.miraheze.org/
 #
