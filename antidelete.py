@@ -15,8 +15,12 @@
 import sys
 import re
 import datetime
-from wikipedia import *
+import pywikibot
+from pywikibot import
 from locale import setlocale, LC_TIME
+family = 'miraheze'
+mylang = 'wikiarchive'
+usernames['miraheze']['wikiarchive'] = 'ArchiverBot'
 
 class Antidelete:
     def __init__(self, lang, patterns):
