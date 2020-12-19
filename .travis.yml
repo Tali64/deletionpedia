@@ -3,7 +3,11 @@ language: python
 python:
   - '3.9'
 
+install:
+  - pip install pywikibot
+
 script:
   - python antidelete.py
+  
 after_success:
   - python antidelete.py
