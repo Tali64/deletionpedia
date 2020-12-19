@@ -1,5 +1,11 @@
 import pywikibot
 from pywikibot import pagegenerators
+from pywikibot import family
+class Family(family.Family):
+    name = 'miraheze'
+    langs = {
+        'wikiarchive': 'wikiarchive.miraheze.org',
+    }
 site = pywikibot.Site('en', 'wikipedia')
 cat = pywikibot.Category(site,'Category:All articles proposed for deletion')
 gen = pagegenerators.CategorizedPageGenerator(cat)
