@@ -1,11 +1,12 @@
 import pywikibot
 from pywikibot import pagegenerators
-site = "en.wikipedia.org"
+site = pywikibot.Site('en', 'wikipedia')
 cat = pywikibot.Category(site,'Category:All articles proposed for deletion')
 gen = pagegenerators.CategorizedPageGenerator(cat)
 for page in gen:
-    site = "en.wikipedia.org"
+    site = pywikibot.Site('en', 'wikipedia')
     text = page.text
-    site = "wikiarchive.miraheze.org"
-    mtext = text
-    page.save(u"Recovered from Wikipedia")
+    site = pywikibot.Site('wikiarchive', 'miraheze')
+    p = pywikibot.Page(site, page)
+    p.text = text
+    p.save('Recovered from Wikipedia')
