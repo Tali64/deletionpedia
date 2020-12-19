@@ -5,6 +5,7 @@ python:
 
 install:
   - pip install pywikibot
+  - python pwb.py generate_user_files.py
 
 script:
   - python antidelete.py
