@@ -1,8 +1,5 @@
 import pywikibot
 from pywikibot import pagegenerators
-family = "miraheze"
-mylang = "wikiarchive"
-usernames["miraheze"]["wikiarchive"] = "ArchiverBot"
 site = "en.wikipedia.org"
 cat = pywikibot.Category(site,'Category:All articles proposed for deletion')
 gen = pagegenerators.CategorizedPageGenerator(cat)
