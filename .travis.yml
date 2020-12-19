@@ -4,6 +4,6 @@ python:
   - '3.6'
 
 script:
-  - print("test")
+  - print(test)
 after_success:
   -antidelete
