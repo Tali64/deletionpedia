@@ -189,7 +189,7 @@ class Family:
         'ba': '[a-zабвгдеёжзийклмнопрстуфхцчшщъыьэюяәөүғҡңҙҫһ“»]*',
         'bar': '[äöüßa-z]*',
         'bat-smg': '[a-ząčęėįšųūž]*',
-        'be': '[абвгґджзеёжзійклмнопрстуўфхцчшыьэюяćčłńśšŭźža-z]*',
+        'be': '[абвгґджзеёжзійклмнопрстуўфхцчшыьэюяćčłńśšŭźža-z]*', 
         'be-tarask': '[абвгґджзеёжзійклмнопрстуўфхцчшыьэюяćčłńśšŭźža-z]*',
         'bg': '[a-zабвгдежзийклмнопрстуфхцчшщъыьэюя]*',
         'bm': '[a-zàâçéèêîôûäëïöüùÇÉÂÊÎÔÛÄËÏÖÜÀÈÙ]*',
@@ -1408,3 +1408,8 @@ def AutoFamily(name: str, url: str):
 wrapper = ModuleDeprecationWrapper(__name__)
 wrapper._add_deprecated_attr('WikiaFamily', replacement=FandomFamily,
                              since='20190420')
+class Family(family.Family):
+    name = 'miraheze'
+    langs = {
+        'wikiarchive': 'wikiarchive.miraheze.org',
+    }
